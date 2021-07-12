@@ -50,7 +50,6 @@ def load_data(cell_name):
 def dataSample(x,y):
     logger.info("doing the data sampling...")
     logger.info('Original dataset shape:%s'%Counter(y))
-    # 将少数集过采样扩大十倍，多数集下采样和少数集1：1
     y=np.array(y)
     print(y)
     count=dict(Counter(y))
@@ -72,7 +71,7 @@ if __name__ == '__main__':
     hg_cells=['H2171','U87','MM1.S']
 
     t1 = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-    logger.info('开始时间：' + t1)
+    logger.info('Start time：' + t1)
 
     if(cell_name=='hg'):
         train_cells = hg_cells
@@ -80,9 +79,6 @@ if __name__ == '__main__':
     else:
         train_cells=mm_cells
         test_cells=hg_cells
-
-    t1 = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-    print('开始时间：' + t1)
 
     x_train=pd.DataFrame()
     y_train=pd.Series()
@@ -145,7 +141,7 @@ if __name__ == '__main__':
     cnn.save(model_path)
 
     t2 = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-    print("结束时间：" + t2)
+    print("End time：" + t2)
 
 
 

@@ -24,15 +24,15 @@ Train a cell-line specific model.
 
 ### train_integrative1.py
 
-Trained a universal model DeepSE-integrative by pooling all cell line datasets together, and testing on every cell line respectively.
+Train a universal model DeepSE-integrative by pooling all cell line datasets together, and testing on every cell line respectively.
 
 ### train_integrative2.py
 
-Trained a model DeepSE-integrative by pooling several cell line datasets, and testing in a new cell line. 
+Train a model DeepSE-integrative by pooling several cell line datasets, and testing in a new cell line. 
 
 ### train_integrative3.py
 
-Trained a model DeepSE-integrative on one species datasets and test on another.
+Train a model DeepSE-integrative on one species datasets and test on another.
 
 ## How to use DeepSE
 

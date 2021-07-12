@@ -45,7 +45,6 @@ def load_data(cell_name):
 def dataSample(x,y):
     logger.info("doing the data sampling...")
     logger.info('Original dataset shape:%s'%Counter(y))
-    # 将少数集过采样扩大十倍，多数集下采样和少数集1：1
     count=dict(Counter(y))
     sm=SMOTE(sampling_strategy={0:int(count[0]),1:int(count[1])*10},random_state=42)
     rus=RandomUnderSampler(sampling_strategy=1,random_state=42)
@@ -58,7 +57,7 @@ def split_data(train_cells):
     dirs=['./data/integrative_data/train','./data/integrative_data/test']
     for dir in dirs:
         if os.listdir(dir):
-            print("清空文件夹")
+            print("clear the directory!")
             shutil.rmtree(dir)
             os.mkdir(dir)
     skf = StratifiedKFold(n_splits=10, shuffle=True)
@@ -100,7 +99,7 @@ if __name__ == '__main__':
     epoch=int(sys.argv[3])
 
     t1=datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-    logger.info ('开始时间：'+t1)
+    logger.info ('Start time：'+t1)
 
     if(cell_name=='hg'):
         train_cells = ['mESC', 'myotube', 'macrophage', 'Th-cell', 'proB-cell']
@@ -163,5 +162,5 @@ if __name__ == '__main__':
             cnn.save(model_path)
 
     t2=datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-    print ("结束时间："+t2)
+    print ("End Time："+t2)
 

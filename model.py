@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''使用keras'''
+'''keras'''
 
 import tensorflow as tf
 from keras import regularizers

@@ -29,8 +29,3 @@ class LogUtils(object):
 
     def get_log(self):
         return self.log
-
-# logger=LogUtils('testlog').get_log()
-#
-# if __name__=='__main__':
-#     logger.info('test message!')
