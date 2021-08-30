@@ -1,12 +1,12 @@
-import csv
-import pandas as pd
-import gensim
-import Bio
-from Bio import SeqIO
-import numpy as np
 import os
-from multiprocessing import Pool,Process
-import time
+import sys
+from multiprocessing import Process
+
+import Bio
+import gensim
+import numpy as np
+import pandas as pd
+from Bio import SeqIO
 
 NULL_vec=np.zeros((100))
 

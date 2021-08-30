@@ -2,15 +2,15 @@ import sys
 import warnings
 from collections import Counter
 from datetime import datetime
+
 import keras
 import pandas as pd
-import sklearn.metrics
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
-from keras.callbacks import Callback
 from sklearn.metrics import roc_auc_score, average_precision_score, recall_score, precision_score, accuracy_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
+
 import model
 from LogUtils import LogUtils
 
@@ -38,7 +38,6 @@ def load_data(cell_name):
 def dataSample(x, y):
     logger.info("doing the data sampling...")
     logger.info('Original dataset shape:%s' % Counter(y))
-    # 将少数集过采样扩大十倍，多数集下采样和少数集1：1
     count = dict(Counter(y))
     sm = SMOTE(sampling_strategy={0: int(count[0]), 1: int(count[1]) * 10}, random_state=42)
     rus = RandomUnderSampler(sampling_strategy=1, random_state=42)
@@ -56,7 +55,7 @@ if __name__ == '__main__':
     epoch=int(sys.argv[3])
     if cell_name in mm_cells or cell_name in hg_cells:
         t1 = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-        logger.info('开始时间：' + t1)
+        logger.info('Start time：' + t1)
 
         X, Y = load_data(cell_name)
 
@@ -128,6 +127,6 @@ if __name__ == '__main__':
             K+=1
 
         t2 = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
-        logger.info("结束时间：" + t2)
+        logger.info("End time：" + t2)
     else:
         print("Please verify your cell name!")

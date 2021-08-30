@@ -1,26 +1,22 @@
 # coding=utf-8
 
 import os
+import shutil
 import sys
-import numpy as np
+from collections import Counter
+from datetime import datetime
+
 import keras
 import pandas as pd
+import sklearn.metrics
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+from sklearn.metrics import roc_auc_score, average_precision_score, recall_score, precision_score, accuracy_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
-from LogUtils import LogUtils
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import SMOTE
-from collections import Counter
-from sklearn.metrics import classification_report,confusion_matrix
-import sklearn.metrics
-from collections import Counter
-from keras.callbacks import Callback
-from keras.models import load_model
-from datetime import datetime
-from sklearn.metrics import roc_auc_score,average_precision_score,recall_score,precision_score,accuracy_score
-import model
-import shutil
 
+import model
+from LogUtils import LogUtils
 
 # create a log object
 

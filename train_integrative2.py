@@ -1,27 +1,17 @@
 ﻿import sys
-import os
-import numpy as np
-import tensorflow as tf
-import keras
-import keras.backend as K
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from LogUtils import LogUtils
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import SMOTE
-from collections import Counter
-from sklearn.metrics import classification_report
-import sklearn.metrics
-import matplotlib.pyplot as plt
-from collections import Counter
-from keras.callbacks import Callback
-from datetime import datetime
-from sklearn.metrics import roc_auc_score, average_precision_score, recall_score, precision_score, accuracy_score
-import model
-import itertools
 import warnings
-from sklearn.model_selection import KFold
+from collections import Counter
+from datetime import datetime
+
+import keras
+import pandas as pd
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+from sklearn.metrics import roc_auc_score, average_precision_score, recall_score, precision_score, accuracy_score
+from sklearn.preprocessing import StandardScaler
+
+import model
+from LogUtils import LogUtils
 
 warnings.filterwarnings("ignore")
 
