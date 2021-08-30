@@ -1,16 +1,10 @@
 # -*- coding: utf-8 -*-
 '''keras'''
 
-import tensorflow as tf
+import keras
 from keras import regularizers
 from keras.layers import *
 from keras.models import *
-from keras.optimizers import  Adam
-from keras import backend as K
-from keras import initializers
-import keras
-from keras.callbacks import Callback
-from keras import metrics
 
 
 def get_model():
