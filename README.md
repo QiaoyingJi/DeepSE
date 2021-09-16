@@ -54,6 +54,14 @@ Convert the DNA sequence of TEs and SEs into feature vectors with the pre-traine
 python get_datavec.py cell_name genome
 ```
 
+For example, to encode the mESC dataset, you can type the command line like:
+
+```python
+python get_datavec.py mESC mm9
+```
+
+And you can find the encoded matrixs of mESC in the file of path './data/mESC'.
+
 The term 'cell_name' is the dataset you want to encode, and 'genome' is the DNA genome of the cell. We have provided two pre-trained embedding matrixs, including human (version hg19) and mouse (mm9). Meanwhile, you can train the dna2vec (https://ngpatrick.com/dna2vec/) model and get your specific embedding matrixs.
 
 We have uploaded all the encoded cell data used in our experiments, including mESC_constituent, mESC, myotube, macrophage, pro-B cell, Th-cell, H2171, MM1.S, and U87. 
@@ -71,6 +79,12 @@ python train_specific.py cell_name learning_rate epochs
 ```
 
 The term 'cell_name' is the cell line you choose from mESC_constituent, mESC, myotube, macrophage, pro-B cell, Th-cell, H2171, MM1.S, and U87. And the parameters 'learning_rate' and 'epochs' are the learning rate and epochs setting for the training model.
+
+For instance, train mESC cell-line specific model with epochs = 80 and learning_rate = 0.01 with command:
+
+```python
+python train_specific.py mESC 0.001 80
+```
 
 #### Train an integrative model
 
@@ -93,3 +107,35 @@ python train_integrative3.py species learning_rate epochs
 ```
 
 The parameter 'species' is the species setting as the training set, and can be hg or mm, representing 'human' and 'mouse' respectively. And the parameters 'learning_rate' and 'epochs' are the learning rate and epochs setting for the training model.
+
+For example, to create a general model for five mouse cells, you can input command like:
+
+```python
+python train_integrative1.py mm 0.001 80
+```
+
+To train an integrative model on two human cell-types and test on a new one:
+
+```python
+python train_integrative2.py hg 0.001 80
+```
+
+And to train a integrative model of human and test on mouse, type like:
+
+```python
+python train_integrative3.py hg 0.001 80
+```
+
+
+
+## **DeepSE demo**
+
+To run a demo of DeepSE-specific model on mESC dataset with epochs = 80 and learning_rate = 0.001, you can type:
+
+```python
+python get_datavec.py mESC mm9
+python train_specific.py mESC 0.001 80
+```
+
+ The encoded matrixs can be find in the file of path './data/mESC'.The information during training process will be printed on the  console and recorded in log files.
+
