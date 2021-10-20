@@ -138,4 +138,8 @@ python train_specific.py mESC 0.001 80
 ```
 
  The encoded matrixs can be find in the file of path './data/mESC'.The information during training process will be printed on the  console and recorded in log files.
+ 
+ ## **Citation**
+
+[1]Qiao-Ying Ji, Xiu-Jun Gong, Hao-Min Li, Pu-Feng Du. DeepSE: Detecting super-enhancers among typical enhancers using only sequence feature embeddings, Genomics(Accepted)
 
